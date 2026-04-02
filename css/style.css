@@ -1,0 +1,379 @@
+/* ==========================================================================
+   Monokai-Themed Personal Landing Page
+   Color Palette: #272822 bg, #F8F8F2 fg, #A6E22E green, #66D9EF cyan,
+                  #FD971F orange, #F92672 pink, #75715E comment gray
+   ========================================================================== */
+
+/* --- Reset & Base --- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  font-size: 16px;
+}
+
+body {
+  background: #272822;
+  color: #F8F8F2;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image:
+    repeating-radial-gradient(circle at 17% 32%, #F8F8F2 0px, transparent 1px),
+    repeating-radial-gradient(circle at 62% 78%, #F8F8F2 0px, transparent 1px),
+    repeating-radial-gradient(circle at 89% 14%, #F8F8F2 0px, transparent 1px);
+  background-size: 3px 3px, 5px 5px, 4px 4px;
+}
+
+::selection {
+  background: #A6E22E;
+  color: #272822;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Layout --- */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+  scroll-snap-align: start;
+}
+
+/* --- Hero --- */
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #F8F8F2;
+}
+
+.hero-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: #75715E;
+}
+
+.comment-slash {
+  color: #75715E;
+}
+
+#typed-output {
+  color: #75715E;
+}
+
+.typed-cursor {
+  color: #A6E22E;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  color: #75715E;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+/* --- Section Titles --- */
+
+.section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  margin-bottom: 48px;
+  color: #F8F8F2;
+}
+
+.section-title .comment-slash {
+  color: #75715E;
+}
+
+/* --- Experience Timeline --- */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.timeline-card {
+  background: rgba(248, 248, 242, 0.03);
+  border-left: 3px solid #A6E22E;
+  padding: 24px 28px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  box-shadow: 0 0 20px rgba(166, 226, 46, 0.15);
+}
+
+.timeline-card:nth-child(2) {
+  border-color: #66D9EF;
+}
+
+.timeline-card:nth-child(3) {
+  border-color: #FD971F;
+}
+
+.card-company {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+  color: #A6E22E;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.card-role {
+  font-size: 1rem;
+  color: #F8F8F2;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.card-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #75715E;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.card-highlights {
+  margin: 0;
+  padding-left: 20px;
+  color: rgba(248, 248, 242, 0.8);
+}
+
+.card-highlights li {
+  margin-bottom: 6px;
+}
+
+/* --- Projects Grid --- */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: rgba(248, 248, 242, 0.03);
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(248, 248, 242, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 25px rgba(166, 226, 46, 0.12);
+  transform: translateY(-2px);
+}
+
+.project-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+  color: #F8F8F2;
+  margin: 0 0 8px;
+}
+
+.project-desc {
+  color: rgba(248, 248, 242, 0.7);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(248, 248, 242, 0.06);
+}
+
+.tag-cyan {
+  color: #66D9EF;
+}
+
+.tag-green {
+  color: #A6E22E;
+}
+
+.tag-orange {
+  color: #FD971F;
+}
+
+.project-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #A6E22E;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.project-link:hover {
+  color: #66D9EF;
+}
+
+.project-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Social Links --- */
+
+.links-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: #75715E;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.social-link:hover {
+  color: #A6E22E;
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* --- Contact --- */
+
+#contact {
+  text-align: center;
+}
+
+.comment-line {
+  font-family: 'JetBrains Mono', monospace;
+  color: #75715E;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.contact-fn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.contact-fn:hover {
+  transform: scale(1.05);
+}
+
+.fn-name {
+  color: #A6E22E;
+}
+
+.fn-dot {
+  color: #F8F8F2;
+}
+
+.fn-method {
+  color: #A6E22E;
+}
+
+.fn-paren {
+  color: #F8F8F2;
+}
+
+.fn-string {
+  color: #FD971F;
+}
+
+/* --- Footer --- */
+
+.footer {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #75715E;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .links-row {
+    gap: 24px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
