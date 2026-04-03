@@ -166,7 +166,7 @@ a {
 }
 
 .scroll-indicator:hover {
-  color: #a6e22e;
+  color: #F92672;
 }
 
 #hero::after {
@@ -176,7 +176,7 @@ a {
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #a6e22e, #66d9ef, #fd971f, transparent);
+  background: linear-gradient(90deg, transparent, #F92672, #a6e22e, #66d9ef, #fd971f, transparent);
   animation: shimmer 3s ease-in-out infinite;
 }
 
@@ -209,160 +209,122 @@ a {
   color: #e0e0e0;
 }
 
-/* --- Experience Timeline --- */
+/* --- Terminal Experience Block --- */
 
-.timeline {
+.terminal-block {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0;
 }
 
-.timeline-card {
-  --accent: #a6e22e;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid #a6e22e;
-  padding: 24px 28px;
-  border-radius: 4px;
-  transition: box-shadow 0.3s ease;
-}
-
-.timeline-card:hover {
-  box-shadow: 0 0 20px color-mix(in srgb, var(--accent), transparent 85%);
-}
-
-.timeline-card:nth-child(2) {
-  --accent: #66d9ef;
-  border-color: #66d9ef;
-}
-
-.timeline-card:nth-child(3) {
-  --accent: #fd971f;
-  border-color: #fd971f;
-}
-
-.timeline-card:nth-child(4) {
-  --accent: #F92672;
-  border-color: #F92672;
-}
-
-.card-company {
-  font-family: 'JetBrains Mono', monospace;
+.terminal-line {
   font-size: 1.1rem;
+  margin-bottom: 28px;
+}
+
+.terminal-line .cmd {
   color: #a6e22e;
-  display: block;
-  margin-bottom: 4px;
 }
 
-.card-role {
-  font-size: 1rem;
-  color: #e0e0e0;
-  display: block;
-  margin-bottom: 4px;
+.terminal-line .cmd-arg {
+  color: #66d9ef;
 }
 
-.card-date {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  color: #636363;
-  display: block;
-  margin-bottom: 12px;
+.terminal-line-end {
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 
-.card-highlights {
-  margin: 0;
-  padding-left: 20px;
-  color: rgba(224, 224, 224, 0.8);
+.cursor-blink {
+  color: #a6e22e;
+  animation: blink 1s step-end infinite;
 }
 
-.card-highlights li {
-  margin-bottom: 6px;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-/* --- Projects Grid --- */
+/* --- Experience Grid --- */
 
-.projects-grid {
+.exp-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
-.project-card {
+.exp-box {
   background: rgba(255, 255, 255, 0.03);
-  padding: 24px;
-  border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-top: 2px solid transparent;
-  transition: box-shadow 0.3s ease, transform 0.3s ease, border-top-color 0.3s ease;
-}
-
-.project-card:hover {
-  box-shadow: 0 0 25px rgba(166, 226, 46, 0.1);
-  transform: translateY(-2px);
-  border-top-color: #a6e22e;
-}
-
-.project-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.1rem;
-  color: #f8f8f2;
-  margin: 0 0 8px;
-}
-
-.project-desc {
-  color: rgba(224, 224, 224, 0.7);
-  font-size: 0.95rem;
-  margin-bottom: 16px;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  padding: 4px 10px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.tag-cyan {
-  color: #66d9ef;
-}
-
-.tag-green {
-  color: #a6e22e;
-}
-
-.tag-orange {
-  color: #fd971f;
-}
-
-.tag-pink {
-  color: #F92672;
-}
-
-.project-link {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  color: #a6e22e;
-  text-decoration: none;
-  display: inline-flex;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.exp-box:hover {
+  border-color: var(--brand-solid, rgba(255,255,255,0.12));
+  box-shadow: 0 0 24px var(--brand-glow, rgba(255,255,255,0.06));
+}
+
+.exp-box:hover .exp-icon {
+  color: var(--brand-solid, #e0e0e0);
+}
+
+.exp-box:hover .exp-name {
+  color: var(--brand-solid, #e0e0e0);
+}
+
+.exp-box:nth-child(1) { --brand-solid: #E1306C; --brand-glow: rgba(225, 48, 108, 0.15); }
+.exp-box:nth-child(2) { --brand-solid: #008CFF; --brand-glow: rgba(0, 140, 255, 0.15); }
+.exp-box:nth-child(3) { --brand-solid: #53A318; --brand-glow: rgba(83, 163, 24, 0.15); }
+.exp-box:nth-child(4) { --brand-solid: #009DE0; --brand-glow: rgba(0, 157, 224, 0.15); }
+
+.exp-icon {
+  width: 36px;
+  height: 36px;
+  color: #636363;
+  transition: color 0.3s;
+}
+
+.exp-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e0e0e0;
+}
+
+.exp-role {
+  font-size: 0.75rem;
+  color: #636363;
+}
+
+.exp-platforms {
+  display: flex;
   gap: 6px;
-  transition: color 0.2s;
+  margin-top: 4px;
 }
 
-.project-link:hover {
+.platform-icon {
+  width: 20px;
+  height: 20px;
+  color: #4a4a4a;
+  transition: color 0.3s;
+}
+
+.exp-box:hover .platform-android {
+  color: #a6e22e;
+}
+
+.exp-box:hover .platform-ios {
+  color: #f8f8f2;
+}
+
+.exp-box:hover .platform-web {
   color: #66d9ef;
-}
-
-.project-link svg {
-  width: 16px;
-  height: 16px;
 }
 
 /* --- Social Links --- */
@@ -386,7 +348,7 @@ a {
 }
 
 .social-link:hover {
-  color: #a6e22e;
+  color: #F92672;
   transform: translateY(-2px);
 }
 
@@ -419,11 +381,11 @@ a {
 
 .contact-fn:hover {
   transform: scale(1.05);
-  text-shadow: 0 0 30px rgba(166, 226, 46, 0.25);
+  text-shadow: 0 0 30px rgba(249, 38, 114, 0.3);
 }
 
 .fn-name {
-  color: #a6e22e;
+  color: #66d9ef;
 }
 
 .fn-dot {
@@ -440,6 +402,34 @@ a {
 
 .fn-string {
   color: #fd971f;
+}
+
+.contact-email {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #636363;
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.contact-email:hover {
+  color: #F92672;
+}
+
+.email-copied {
+  display: none;
+  color: #a6e22e;
+  margin-left: 8px;
+  font-size: 0.8rem;
+}
+
+.contact-email.copied .email-copied {
+  display: inline;
+}
+
+.contact-email.copied .email-text {
+  color: #a6e22e;
 }
 
 /* --- Footer --- */
@@ -467,8 +457,8 @@ a {
     gap: 24px;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .exp-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .terminal-titlebar .titlebar-text {
