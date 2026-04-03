@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
       'problem solver',
       'builder'
     ],
-    typeSpeed: 50,
-    backSpeed: 30,
+    typeSpeed: 45,
+    backSpeed: 25,
     loop: true,
-    startDelay: 500,
+    startDelay: 600,
     backDelay: 2000
   });
 

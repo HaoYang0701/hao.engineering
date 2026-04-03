@@ -9,7 +9,7 @@
   <meta property="og:description" content="Hao Yang — software engineer. Portfolio, experience, and projects.">
   <meta property="og:url" content="https://hao.engineering">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#272822">
+  <meta name="theme-color" content="#1a1a1e">
   <link rel="icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,13 +19,21 @@
 </head>
 <body>
 
+  <!-- Terminal Title Bar -->
+  <div class="terminal-titlebar">
+    <span class="dot dot-red"></span>
+    <span class="dot dot-yellow"></span>
+    <span class="dot dot-green"></span>
+    <span class="titlebar-text">hao@dev: ~/hao.engineering</span>
+  </div>
+
   <!-- Hero -->
   <section id="hero" class="section hero">
     <div class="container">
       <h1 class="hero-name">Hao Yang<span class="hero-accent">.</span></h1>
-      <div class="hero-tagline"><span class="comment-slash">// </span><span id="typed-output"></span></div>
+      <div class="hero-tagline"><span class="prompt">❯</span> <span id="typed-output"></span></div>
       <div class="scroll-indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </div>
     </div>
   </section>
@@ -33,7 +41,7 @@
   <!-- Experience -->
   <section id="experience" class="section">
     <div class="container">
-      <h2 class="section-title"><span class="comment-slash">// </span>experience</h2>
+      <h2 class="section-title"><span class="prompt">❯</span> experience</h2>
       <div class="timeline">
         <div class="timeline-card" data-aos="fade-up" data-aos-delay="0">
           <span class="card-company">Company Name</span>
@@ -69,7 +77,7 @@
   <!-- Projects -->
   <section id="projects" class="section">
     <div class="container">
-      <h2 class="section-title"><span class="comment-slash">// </span>projects</h2>
+      <h2 class="section-title"><span class="prompt">❯</span> projects</h2>
       <div class="projects-grid">
         <div class="project-card" data-aos="fade-up" data-aos-delay="0">
           <h3 class="project-name">Project Name</h3>
@@ -108,7 +116,7 @@
   <!-- Links -->
   <section id="links" class="section">
     <div class="container">
-      <h2 class="section-title"><span class="comment-slash">// </span>links</h2>
+      <h2 class="section-title"><span class="prompt">❯</span> links</h2>
       <div class="links-row">
         <a href="https://github.com/HaoYang0701" class="social-link" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
@@ -125,7 +133,7 @@
   <!-- Contact -->
   <section id="contact" class="section">
     <div class="container">
-      <p class="comment-line">// get in touch</p>
+      <p class="comment-line"># get in touch</p>
       <a href="mailto:placeholder@email.com" class="contact-fn">
         <span class="fn-name">hao</span><span class="fn-dot">.</span><span class="fn-method">contact</span><span class="fn-paren">(</span><span class="fn-string">"email"</span><span class="fn-paren">)</span>
       </a>
@@ -135,7 +143,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-text">// built by hao — 2026</p>
+      <p class="footer-text"># built by hao — 2026</p>
     </div>
   </footer>
 
